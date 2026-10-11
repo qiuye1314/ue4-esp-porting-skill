@@ -36,6 +36,9 @@ GNames / GWorld / GUObjectArray / PersistentLevel→Actors 链 / 敌人类名前
 - 指针类偏移：候选+0x8 应仍是合法 UObject 地址（同 so 段区间），解引用名字能在 GNames 对上。
 - **一次只动一个变量**：改一处→导出调试报告→比对屏幕现象。全案报告见 FPS2_debug.txt 格式(references/report_format.md)。
 
+## 二·五、实机找数据的标准作业程序（本会话真实执行序）
+管线先通→类名考古→坐标链考古(含C2W三重判据探测)→骨骼三探(空即切几何)→相机矩阵哈希法→物理场景摸根+污染反推→触摸坐标系对照实验→参数标定一行一数据。逐步细节/验证判据/负结论都写在 references/data_probing_procedure.md，新游戏直接照序跑。
+
 ## 三、关键偏移与挖法（FPS2 实测值）
 | 数据 | FPS2 偏移 | 挖法/验证 |
 |---|---|---|
