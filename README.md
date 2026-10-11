@@ -64,4 +64,8 @@ cd ue4-esp-porting-skill && sh scripts-install.sh
 
 ## 📄 License
 
-模板与逆向方法仅供学习研究；内存结构偏移均为特定游戏版本实测值，改版即失效，按第二章方法论重挖。
+**GPL-3.0** — 修改必须开源回馈（同你衍生使用的上游模板许可一致）
+
+- 基于 PUBGM 纯C ImGui+Vulkan 模板体系与 com.ShuiSha.FPS2 实战（v1→v18）
+- 维护者：qiuye1314
+- 内存结构偏移均为特定游戏版本实测值，改版即失效，按第二章方法论重挖
