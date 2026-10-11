@@ -77,6 +77,9 @@ GNames / GWorld / GUObjectArray / PersistentLevel→Actors 链 / 敌人类名前
 - zm 坐标映射照抄原作者（zm_y=scr.x, zm_x=ScreenX-scr.y）——**方向被原版验证过，别自创**。
 - 主开关硬闸在最前：!DrawIo[20] → Touch::Up(); return。
 
+## 六·五、手机端数据通道（用户喂数据怎么读）
+用户数据三入口：聊天直发(文字/图片/@路径) → /sdcard/Download 共享区(dump/SDK/调试报告统一落这) → /app/* 设备桥(读屏/截屏/截屏需无障碍)。标准循环：导报告→grep关键行→对现象→单变量改→重编部署→实测回收。完整规程见 references/dsh_data_channels.md。
+
 ## 七、构建/部署闭环（手机版）
 1. 构建：bash /tmp/w/out/build_fps2.sh（TUSI NDK r29 arm64，-nostdlib++ 静态 libc++，全量~4min；
    失败判据 obj/arm64/.fail；打包前 rm -rf obj）
