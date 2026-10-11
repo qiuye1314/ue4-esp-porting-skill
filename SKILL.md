@@ -24,6 +24,9 @@ metadata:
 2. **数据链**：GWorld → GameStage → ULevel → Actors[] → 类名过滤 BP_AI_Pawn_* → 逐 pawn 取
    Mesh(RootComponent+0xD0 常见) → C2W(Transform) 得世界坐标 → W2S(视图矩阵×FOV) 出屏幕框。
 
+## 一点五、输入清单（喂这个 skill 需要的 8 项）
+GNames / GWorld / GUObjectArray / PersistentLevel→Actors 链 / 敌人类名前缀 / Pawn→RootComponent→Mesh→位置链 / 相机ViewMatrix+Fov / Embree三场景根(st,dyn,hf)。来源：UE4Dump-MCP-Enhance 跑一次 dump（另一项目，仅数据源关系），缺哪项就按第二章自挖哪项。
+
 ## 二、偏移考古总原则（没数据怎么找数据）
 每个偏移用"**结构合理性 + 行为一致性**"双验证，宁试百次不吃一个坏值：
 - 浮点三件套：位置=3×float 且量级∈[1e2,1e6]、四元数=4×float 且模∈[0.85,1.25]、

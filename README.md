@@ -21,6 +21,25 @@
 
 ---
 
+## 🎯 你需要准备什么（唯一前置）
+
+用 UE4Dump-MCP-Enhance 对目标游戏跑一次 dump，把下面 **8 项数据**喂进来，本方法论从第二章起跑（FPS2 当时就是按这份清单提供的）：
+
+| # | 数据 | 用途 |
+|---|------|------|
+| 1 | GNames（FNamePool 基址/偏移） | 解类名 → 过滤敌人 |
+| 2 | GWorld（UWorld 基址/偏移） | 数据链根 |
+| 3 | GUObjectArray（对象数组） | 类字典/对象验证 |
+| 4 | PersistentLevel → Actors 链偏移 | 枚举全场 Actor |
+| 5 | 类名单（敌人 Pawn 前缀，如 BP_AI_Pawn_*） | 目标过滤 + 队伍后缀规律 |
+| 6 | Pawn→RootComponent→Mesh→位置 链偏移 | 世界坐标来源 |
+| 7 | 相机 ViewMatrix[16] + Fov 偏移 | WorldToScreen |
+| 8 | Embree/物理场景根（st/dyn/hf 三场景） | 掩体漏打判定 |
+
+没有 UE4Dump 工具也行：8 项全部按 SKILL.md 第二章的考古法自挖（每一项的验证判据都写在表里）。
+
+---
+
 ## 📌 内容总览
 
 ```
