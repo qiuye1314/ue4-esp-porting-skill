@@ -4,7 +4,7 @@ description: UE4 手游透视+自瞄逆向移植（FPS2 实战定版 v18）：�
 whenToUse: 用户要在新的 UE4/UE5 手游上做透视自瞄移植、要解释/复现某个偏移是怎么挖出来的、要调掩体可见性或自瞄防抖参数、或索要/修改 FPS2透视 工程时。
 metadata:
   version: 1.0.0
-  author: 富江
+  author: e7
   upstream: PUBGM 纯C ImGui+Vulkan 模板 + com.ShuiSha.FPS2 实战 v1-v18
   dshHome: /root/.dsh/skills/ue4-esp-porting-mobile
   artifacts: /sdcard/Download/FPS2透视_start.sh /sdcard/Download/FPS2透视_AIDE.zip
@@ -24,8 +24,8 @@ metadata:
 2. **数据链**：GWorld → GameStage → ULevel → Actors[] → 类名过滤 BP_AI_Pawn_* → 逐 pawn 取
    Mesh(RootComponent+0xD0 常见) → C2W(Transform) 得世界坐标 → W2S(视图矩阵×FOV) 出屏幕框。
 
-## 一点五、输入清单（喂这个 skill 需要的 8 项）
-GNames / GWorld / GUObjectArray / PersistentLevel→Actors 链 / 敌人类名前缀 / Pawn→RootComponent→Mesh→位置链 / 相机ViewMatrix+Fov / Embree三场景根(st,dyn,hf)。来源：UE4Dump-MCP-Enhance 跑一次 dump（另一项目，仅数据源关系），缺哪项就按第二章自挖哪项。
+## 一点五、输入清单（8 项，双来源二选一）
+GNames / GWorld / GUObjectArray / PersistentLevel→Actors 链 / 敌人类名前缀 / Pawn→RootComponent→Mesh→位置链 / 相机ViewMatrix+Fov / Embree三场景根(st,dyn,hf)。来源A：UE4Dump-MCP-Enhance 跑一次 dump 直接齐 8 项（推荐）；来源B：一项都没有时按第二、三章考古法逐项自挖（每项都有验证判据），缺哪项挖哪项。
 
 ## 二、偏移考古总原则（没数据怎么找数据）
 每个偏移用"**结构合理性 + 行为一致性**"双验证，宁试百次不吃一个坏值：
